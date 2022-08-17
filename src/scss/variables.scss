@@ -1,0 +1,74 @@
+// Colors
+$colors: (
+        'black': #151515,
+        'white': #FFFFFF,
+        'dark-blue': #2E3192,
+        'grey': #9AA3BB,
+        'light-grey': #F2F5FD,
+        'dark-grey': #5A606E,
+        'red': #DE3131,
+        'green': #2E9232
+);
+
+@function colors($key) {
+  @return map-get($colors, $key);
+}
+
+
+$color-primary: colors('black');
+$color-danger: #DE3131;
+$color-success: #2E9232;
+$color-warning: colors('dark-grey');
+
+
+$bg-gradient: linear-gradient(184.53deg, #B3DAFF 7.34%, #F2F5FD 92.66%);
+
+$font-family: 'Onest', Arial, sans-serif;
+
+// Max width at which point
+$breakpoint-xxl: 1699.98px;
+$breakpoint-xl: 1279.98px;
+$breakpoint-xs: 767.98px;
+
+$grid-width: (
+        md: 100%,
+        lg: 768px,
+        xl: 1280px,
+        xxl: 1700px
+);
+$grid-gutter-widths: (
+        md: 12px,
+        lg: 20px,
+        xl: 85px,
+        xxl: 70px
+);
+@function container($key: xxl) {
+  @return map-get($grid-width, $key);
+}
+
+@function gutter($key: xxl) {
+  @return map-get($grid-gutter-widths, $key);
+}
+
+@mixin media ($sizeName: 'xxl') {
+  $size: $breakpoint-xxl;
+
+  @if($sizeName == 'xxl') {
+    $size: $breakpoint-xxl;
+  } @else if($sizeName == 'xl') {
+    $size: $breakpoint-xl;
+  } @else {
+    $size: $breakpoint-xs;
+  }
+
+  @media (max-width: $size) {
+    @content
+  }
+}
+
+
+@mixin section() {
+  padding: var(--section-padding) 0;
+  border-top: 1px solid colors('black');
+  //border-bottom: 1px solid colors('black');
+}

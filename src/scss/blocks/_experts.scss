@@ -1,0 +1,557 @@
+@use "../variables" as *;
+.experts-wrap {
+  position: relative;
+
+  .section-title {
+    position: absolute;
+    top: 100px;
+    left: 0;
+  }
+}
+.experts {
+  display: grid;
+  grid-template: auto / repeat(3, 1fr);
+  column-gap: 48px;
+  row-gap: 48px;
+
+  &-card {
+    padding: 20px;
+    overflow: hidden;
+    position: relative;
+    height: 666px;
+    &:nth-child(1) {
+      margin-top: 122px;
+    }
+    &:nth-child(3) {
+      margin-top: 40px;
+    }
+    &:nth-child(5) {
+      margin-top: -122px;
+    }
+    &:hover {
+      .experts-card__img {
+        height: 0;
+      }
+
+      .experts-card-info {
+        padding-top: 0;
+
+        &__name {
+          font-size: 36px;
+        }
+
+        &__position {
+          font-size: 20px;
+        }
+      }
+
+      .experts-card-cases-list {
+        li {
+          &:not(.active) {
+            background-color: transparent;
+            color: colors('dark-blue');
+
+            &:hover {
+              background-color: colors('light-grey');
+            }
+          }
+
+          &:not(:last-child) {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+
+    &__img {
+      transition: ease-out .25s;
+      height: 400px;
+      overflow: hidden;
+
+      img {
+        display: block;
+        border-radius: 20px;
+        max-width: 100%;
+      }
+    }
+
+    &-info {
+      padding: 20px 8px 8px;
+      height: 100%;
+      background-color: colors('white');
+
+      &:not(&--popup) {
+        display: none;
+      }
+
+      &__name {
+        font-size: 40px;
+        line-height: 130%;
+        margin-bottom: 8px;
+        transition: ease-out .25s;
+      }
+
+      &__position {
+        font-size: 24px;
+        color: colors('dark-grey');
+        margin-bottom: 28px;
+        transition: ease-out .25s;
+      }
+    }
+
+    &-cases {
+      &-list {
+        padding: 0;
+        margin: 0 0 20px;
+        list-style: none;
+        display: flex;
+
+        li {
+          display: inline-block;
+          cursor: pointer;
+          background-color: colors('light-grey');
+          padding: 12px 20px;
+          border-radius: 16px;
+          font-size: 18px;
+          font-weight: 500;
+          transition: ease-in .2s;
+
+          &:not(:last-child) {
+            margin-right: 8px;
+          }
+
+          span {
+            color: colors('grey');
+            font-weight: 500;
+            font-size: 16px;
+          }
+        }
+      }
+
+      &-links {
+        display: none;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+          &:not(:last-child) {
+            margin-bottom: 20px;
+          }
+
+          a {
+            text-decoration: none;
+            color: colors('dark-blue');
+            font-weight: 500;
+
+            span {
+              color: colors('grey');
+            }
+          }
+        }
+      }
+
+      &[data-active-tab="cases"] {
+        [data-content="cases"] {
+          display: block;
+        }
+      }
+
+      &[data-active-tab="articles"] {
+        [data-content="articles"] {
+          display: block;
+        }
+      }
+    }
+  }
+}
+.experts-question {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #D9EDFF;
+  border-radius: 28px;
+  padding: 40px;
+  width: 488px;
+  height: 666px;
+  position: absolute;
+  right: 0;
+  bottom: 182px;
+
+  &__title {
+    font-size: 48px;
+    line-height: 130%;
+    margin-bottom: 40px;
+  }
+  &__text {
+    font-size: 32px;
+    line-height: 130%;
+    color: colors('dark-grey');
+    margin-bottom: 80px;
+  }
+  .btn {
+    width: 284px;
+  }
+}
+@media (max-width: $breakpoint-xxl) {
+  .experts-wrap {
+    .section-title {
+      top: 80px;
+    }
+  }
+  .experts {
+    column-gap: 36px;
+    row-gap: 36px;
+
+    &-card {
+      padding: 16px;
+      height: 520px;
+      &:nth-child(1) {
+        margin-top: 87px;
+      }
+      &:nth-child(3) {
+        margin-top: 40px;
+      }
+      &:nth-child(5) {
+        margin-top: -87px;
+      }
+
+      &__img {
+        height: 280px;
+      }
+
+      &-info {
+        padding: 16px 4px 4px;
+
+        &__name {
+          font-size: 32px;
+          margin-bottom: 6px;
+        }
+
+        &__position {
+          font-size: 20px;
+          height: 84px;
+          margin-bottom: 20px;
+        }
+      }
+
+      &-cases-list {
+        li {
+          padding: 9px 16px;
+        }
+      }
+
+      &:hover {
+        .experts-card-info {
+          &__name {
+            font-size: 28px;
+          }
+
+          &__position {
+            font-size: 18px;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+
+  .experts-question {
+    border-radius: 20px;
+    padding: 28px;
+    width: 346px;
+    height: 492px;
+    bottom: 155px;
+
+    &__title {
+      font-size: 36px;
+      margin-bottom: 28px;
+    }
+    &__text {
+      font-size: 26px;
+      margin-bottom: 40px;
+    }
+    .btn {
+      width: 246px;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-xl) {
+  .experts {
+    grid-template: auto / 1fr 1fr;
+    column-gap: 32px;
+    row-gap: 32px;
+
+    &-card {
+      &:nth-child(1) {
+        margin-top: 87px;
+      }
+      &:nth-child(4) {
+        margin-top: -87px;
+      }
+      &:nth-child(3) {
+        margin-top: 0;
+      }
+
+      &:nth-child(5) {
+        margin-top: 0;
+      }
+      &__img {
+        height: 282px;
+      }
+
+      &:hover {
+        .experts-card__img {
+          height: 282px;
+        }
+
+        .experts-card-info {
+          padding-top: 16px;
+
+          &__name {
+            font-size: 32px;
+          }
+
+          &__position {
+            font-size: 20px;
+            height: 84px;
+          }
+        }
+      }
+
+      &-info {
+        &:not(&--popup) {
+          display: block;
+        }
+
+        &--popup {
+          display: none;
+
+          .experts-card-info__name {
+            font-size: 28px;
+            margin-bottom: 0;
+          }
+
+          .experts-card-info__position {
+            font-size: 18px;
+            height: auto;
+            margin-bottom: 28px;
+            br {
+              display: none;
+            }
+          }
+          .experts-card-cases-list {
+            margin-bottom: 28px;
+            li:not(.active) {
+              background-color: transparent;
+              color: colors('dark-blue');
+            }
+          }
+
+        }
+      }
+    }
+  }
+  .expert-popup {
+    .fancybox__backdrop {
+      background-color: rgba(90, 96, 110, .5);
+    }
+
+    .fancybox__content > .carousel__button.is-close {
+      top: 16px;
+      right: 16px;
+      box-shadow: none;
+    }
+
+    .carousel__button {
+      width: 48px;
+      height: 40px;
+      border-radius: 12px;
+      padding: 8px 12px;
+      &:before {
+        content: '';
+        position: absolute;
+        width: 28px;
+        height: 28px;
+        background: url("../../images/protonGroup/svg/icon-close.svg") 50% 50% no-repeat;
+        background-size: 28px;
+
+        @include media('xs') {
+          width: 20px;
+          height: 20px;
+          background-size: 20px;
+        }
+      }
+      svg {
+        display: none;
+      }
+      &:hover {
+        background: colors('light-grey');
+      }
+    }
+
+    .fancybox__content {
+      max-width: 604px;
+      height: 427px;
+      padding: 40px;
+      box-shadow: 0 0 20px rgba(154, 163, 187, 0.2);
+      border-radius: 20px;
+    }
+  }
+  .experts-question {
+    width: 348px;
+    height: 522px;
+    bottom: 164px;
+  }
+}
+
+@media (max-width: $breakpoint-xs) {
+  .experts-wrap {
+    .section-title {
+      position: static;
+      margin-bottom: 20px;
+    }
+  }
+  .experts {
+    display: flex;
+    overflow: auto;
+    margin-left: -12px;
+    margin-right: -12px;
+    column-gap: 8px;
+
+    &::-webkit-scrollbar-thumb {
+      background-color: transparent;
+    }
+    &::-webkit-scrollbar {
+      background-color: transparent;
+    }
+    &-card {
+      padding: 12px;
+      height: auto;
+      min-width: 258px;
+      &:nth-child(1) {
+        margin-top: 0;
+      }
+      &:nth-child(4) {
+        margin-top: 0;
+      }
+
+      &:not(:last-child) {
+        //margin-right: 8px;
+      }
+      &__img {
+        height: auto;
+        img {
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+      &-info {
+        padding-top: 12px;
+        &__name {
+          font-size: 26px;
+        }
+        &__position {
+          font-size: 18px;
+          br {
+            display: none;
+          }
+        }
+        &--popup {
+          .experts-card-info__name {
+            font-size: 24px;
+          }
+
+          .experts-card-info__position {
+            font-size: 16px;
+            margin-bottom: 20px;
+          }
+          .experts-card-cases-list {
+            margin-bottom: 20px;
+          }
+
+        }
+      }
+      &:hover {
+        .experts-card-info {
+          padding-top: 12px;
+          &__name {
+            font-size: 26px;
+          }
+          &__position {
+            font-size: 18px;
+          }
+        }
+        .experts-card__img {
+          height: auto;
+        }
+      }
+      &-cases{
+        &-list {
+          li {
+            font-size: 14px;
+            padding: 5px 12px;
+            border-radius: 8px;
+            &:not(:last-child) {
+              margin-right: 0;
+            }
+          }
+        }
+        &-links {
+          li {
+            &:not(:last-child) {
+              margin-bottom: 16px;
+            }
+            a {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .expert-popup {
+    .fancybox__content > .carousel__button.is-close {
+      top: 12px;
+      right: 12px;
+    }
+
+    .carousel__button {
+      width: 40px;
+      height: 30px;
+      border-radius: 8px;
+      padding: 3px 8px;
+    }
+    .fancybox__slide {
+      padding: 0;
+    }
+    .fancybox__content {
+      max-width: none;
+      width: 100%;
+      height: 100vh;
+      padding: 20px 12px;
+      border-radius: 0;
+    }
+  }
+  .experts-question {
+    position: static;
+    padding: 40px 20px;
+    width: 100%;
+    height: auto;
+
+    &__title {
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+    &__text {
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+    .btn {
+      width: 246px;
+      height: 40px;
+    }
+  }
+}

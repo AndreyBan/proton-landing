@@ -1,0 +1,47 @@
+@use "fonts";
+@use "variables";
+
+// Main style
+@use "style";
+
+// Buttons
+@use "components/buttons/btns";
+
+// Header
+@use "blocks/header";
+
+// Partners
+@use "blocks/partner-block";
+
+// Excellence
+@use "blocks/excellence";
+
+// Choice product
+@use "blocks/choice-product";
+
+// Your partner
+@use "blocks/your-partner";
+
+// IT import
+@use "blocks/it-import";
+
+// Portfolio
+@use "blocks/portfolio";
+
+// Articles
+@use "blocks/articles";
+
+// Experts
+@use "blocks/experts";
+
+// Result import
+@use "blocks/result-import";
+
+// Footer
+@use "blocks/footer";
+
+// Form
+@use "blocks/form";
+
+// Media queries
+@use "media";

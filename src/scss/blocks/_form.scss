@@ -1,0 +1,151 @@
+@use "../variables" as *;
+
+.main-form {
+  display: none;
+  padding: 60px;
+  background-color: colors('white');
+  box-shadow: 0 0 28px rgba(154, 163, 187, 0.2);
+  border-radius: 28px;
+  max-width: 768px;
+
+
+  &__title {
+    font-size: 36px;
+    line-height: 130%;
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: 40px;
+
+    @include media() {
+      font-size: 28px;
+    }
+    @include media('xs') {
+      font-size: 24px;
+      padding-right: 20px;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.form-group {
+  display: grid;
+  grid-template: 1fr / 140px auto;
+  column-gap: 40px;
+  align-items: center;
+  margin-bottom: 24px;
+  position: relative;
+
+  @include media() {
+    margin-bottom: 18px;
+    column-gap: 28px;
+    grid-template: 1fr / 120px 318px;
+  }
+  @include media('xs') {
+    column-gap: 0;
+    grid-template: auto/ 1fr;
+    margin-bottom: 12px;
+  }
+
+  label {
+    font-size: 24px;
+
+    @include media() {
+      font-size: 20px;
+    }
+    @include media('xs') {
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+    span {
+      color: colors('grey');
+    }
+  }
+
+  input {
+    background-color: colors('light-grey');
+    border-radius: 20px;
+    padding: 18px 20px;
+    border: 1px solid colors('light-grey');
+    transition: ease-in .2s;
+    font-size: 24px;
+    height: 70px;
+
+    @include media() {
+      font-size: 20px;
+      height: 60px;
+    }
+    @include media('xs') {
+      font-size: 18px;
+      height: 50px;
+    }
+    &:focus, &:active, &.filled {
+      outline: none;
+      background-color: colors('white');
+    }
+
+    &:focus, &:active, &:hover, &.filled {
+      border: 1px solid colors('grey');
+    }
+  }
+  &.has-error {
+    input {
+      border: 1px solid colors('red');
+    }
+    .error-text {
+      display: inline-block;
+    }
+  }
+  .error-text {
+    display: none;
+    color: colors('red');
+    position: absolute;
+    right: 244px;
+    bottom: -22px;
+    font-size: 14px;
+  }
+}
+
+.form-footer {
+  display: grid;
+  grid-template: auto /auto auto;
+  margin-top: 40px;
+  column-gap: 40px;
+
+  @include media() {
+    grid-template: auto /278px 160px;
+    column-gap: 28px;
+    margin-top: 28px;
+  }
+  @include media('xs') {
+    margin-top: 20px;
+    grid-template: auto / 1fr;
+    column-gap: 0;
+  }
+  .btn {
+    border: none;
+    cursor: pointer;
+    width: 200px;
+
+    @include media() {
+      width: 160px;
+    }
+  }
+
+  &__accept {
+    font-size: 16px;
+
+    a {
+      font-size: 16px;
+    }
+
+    @include media() {
+      font-size: 14px;
+      a {
+        font-size: 14px;
+      }
+    }
+    @include media('xs') {
+      margin-bottom: 20px;
+    }
+  }
+}

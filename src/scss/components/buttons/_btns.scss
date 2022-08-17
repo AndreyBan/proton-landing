@@ -1,0 +1,95 @@
+@import "../../variables";
+
+@mixin btn($colorText, $colorHoverText, $bg, $bgHover) {
+  color: $colorText;
+  background-color: $bg;
+  &:hover {
+    color: $colorHoverText;
+    background-color: $bgHover;
+  }
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 28px;
+  border-radius: 20px;
+  transition: .2s ease-in;
+  font-weight: 500;
+  text-decoration: none;
+  &--inline {
+    display: inline-flex;
+  }
+  &--small {
+    padding: 12px 20px;
+    border-radius: 16px;
+    font-size: 18px;
+    height: 50px;
+  }
+  &--none {
+    @include btn(
+            $colorText: colors('dark-blue'),
+            $colorHoverText: colors('dark-blue'),
+            $bg: transparent,
+            $bgHover: colors('white')
+    )
+  }
+  &--blue {
+    @include btn(
+            $colorText: colors('white'),
+            $colorHoverText: colors('white'),
+            $bg: colors('dark-blue'),
+            $bgHover: colors('black')
+    )
+  }
+  &--gray {
+    @include btn(
+            $colorText: colors('dark-blue'),
+            $colorHoverText: colors('white'),
+            $bg: colors('light-grey'),
+            $bgHover: colors('dark-blue')
+    )
+  }
+  &--white {
+    @include btn(
+            $colorText: colors('dark-blue'),
+            $colorHoverText: colors('dark-blue'),
+            $bg: colors('white'),
+            $bgHover: colors('light-grey')
+    );
+    &:active {
+      color: colors('black');
+    }
+  }
+}
+
+@media (max-width: $breakpoint-xxl){
+
+  .btn {
+    padding: 12px 20px;
+    height: 50px;
+    border-radius: 16px;
+    &--small {
+      font-size: 16px;
+      padding: 9px 16px;
+      border-radius: 12px;
+      height: 40px;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-xs){
+
+  .btn {
+    padding: 9px 16px;
+    height: 40px;
+    border-radius: 12px;
+    &--small {
+      font-size: 14px;
+      padding: 5px 12px;
+      border-radius: 8px;
+      height: 30px;
+    }
+  }
+}

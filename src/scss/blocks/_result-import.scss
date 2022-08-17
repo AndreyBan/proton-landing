@@ -1,0 +1,68 @@
+@use "../variables" as *;
+
+.result-import {
+  &-card {
+    display: grid;
+    grid-template: auto / 1fr 1fr;
+    column-gap:  var(--elements-padding);
+    row-gap: var(--elements-padding);
+    margin-top: 60px;
+  }
+  &-item {
+    text-align: center;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    &__title{
+      font-size: 40px;
+      line-height: 130%;
+      margin-bottom: 12px;
+    }
+    &__text {
+      margin: 0;
+      color: colors('dark-grey')
+    }
+  }
+}
+
+@media (max-width: $breakpoint-xxl){
+  .result-import {
+    &-card {
+      margin-top: 40px;
+    }
+    &-item {
+      height: 181px;
+      &__title{
+        font-size: 32px;
+        margin-bottom: 8px;
+      }
+    }
+  }
+}
+@media (max-width: $breakpoint-xl){
+  .result-import {
+    &-item {
+      height: auto;
+      padding-top: 28px;
+      padding-bottom: 28px;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-xs){
+  .result-import {
+    &-card {
+      grid-template: auto / 1fr;
+    }
+    &-item {
+      &__title {
+        font-size: 26px;
+        margin-bottom: 6px;
+      }
+      &__text {
+        font-size: 16px;
+      }
+    }
+  }
+}

@@ -1,0 +1,301 @@
+@use "../variables" as *;
+
+.choice-product {
+  padding-bottom: 72px;
+  &__title {
+    font-size: 48px;
+    line-height: 130%;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 40px;
+  }
+  &__changed{
+    display: none;
+  }
+  &__list {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 32px 0;
+    text-align: center;
+
+    li {
+      cursor: pointer;
+      white-space: nowrap;
+
+      &.active {
+        background-color: colors('white');
+        color: colors('black');
+      }
+    }
+  }
+
+  &-item {
+    display: grid;
+    grid-template: auto / auto 476px;
+    column-gap: 24px;
+    background-color: colors('white');
+    padding: 28px 28px 28px 56px;
+    border-radius: 28px;
+    width: 1296px;
+    margin: 28px 0;
+    &:hover {
+      box-shadow: 0 0 28px rgba(154, 163, 187, 0.2);
+      .btn--gray {
+        background-color: colors('dark-blue');
+        color: colors('white')
+      }
+    }
+
+    &__title {
+      font-size: 40px;
+      line-height: 130%;
+      margin-top: 18px;
+    }
+
+    &__subtitle {
+      font-size: 16px;
+      color: colors('dark-grey');
+    }
+
+    &__text {
+      margin: 28px 0;
+      padding-top: 20px;
+      border-top: 1px solid colors('black');
+    }
+
+    &__right {
+      img {
+        display: block;
+      }
+    }
+  }
+}
+
+.choice-slider {
+  width: 100%;
+  .swiper-slide {
+    width: auto;
+  }
+}
+
+@media (max-width: $breakpoint-xxl) {
+  .choice-product {
+    padding-bottom: 52px;
+    &__title {
+      margin-top: 80px;
+      margin-bottom: 28px;
+      font-size: 36px;
+    }
+
+    &__list {
+      margin-bottom: 12px;
+    }
+
+    &-item {
+      grid-template: auto / auto 338px;
+      column-gap: 18px;
+      padding: 20px 20px 20px 40px;
+      width: 922px;
+
+      &__title {
+        font-size: 32px;
+        margin-top: 0;
+      }
+
+      &__subtitle {
+        font-size: 14px;
+      }
+
+      &__text {
+        margin: 20px 0;
+        padding-top: 12px;
+      }
+
+      &__right {
+        margin: auto 0;
+
+        img {
+          width: 338px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-xl) {
+  .choice-product {
+    &__list {
+      margin-bottom: 12px;
+    }
+
+    &-item {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      width: 604px;
+
+      &__left {
+        order: 1;
+      }
+
+      &__text {
+        margin-bottom: 60px;
+      }
+
+      &__right {
+        margin: 0 0 16px;
+        border-radius: 12px;
+
+        img {
+          width: auto;
+          height: 284px;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+  .choice-btn-wrap {
+    position: absolute;
+    bottom: 48px;
+    right: 20px;
+    //  TODO: Под вопросом нужно ли
+    .btn--gray {
+      background-color: colors('dark-blue');
+      color: colors('white');
+      line-height: 130%;
+
+      &:hover {
+        background-color: colors('black');
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-xs) {
+  .choice-slider {
+    &.swiper {
+      padding-left: 12px;
+    }
+
+    .swiper-slide {
+      width: 100%;
+    }
+  }
+  .choice-product {
+    padding-bottom: 12px;
+    &__title {
+      margin-top: 40px;
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+
+    &__changed {
+      display: block;
+      position: relative;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 9px 37px 9px 16px;
+      background-color: colors('white');
+      color: colors('dark-blue');
+      border-radius: 12px;
+      height: 40px;
+      width: 254px;
+      transition: ease-in .3s;
+
+      &:after {
+        content: '';
+        position: absolute;
+        width: 10px;
+        right: 17px;
+        height: 6px;
+        top: calc(50% - 3px);
+        background: url("../../images/protonGroup/svg/arrow-down.svg") 0 0 no-repeat;
+      }
+
+      &.open {
+        background-color: transparent;
+
+        &:after {
+          transform: rotate(180deg);
+        }
+
+        + .choice-product-list-wrap {
+          .choice-product__list {
+            opacity: 1;
+            pointer-events: auto;
+          }
+        }
+      }
+    }
+    &-list-wrap {
+      display: flex;
+      position: relative;
+      justify-content: center;
+    }
+    &__list {
+      display: block;
+      opacity: 0;
+      pointer-events: none;
+      position: absolute;
+      z-index: 10;
+      background-color: colors('white');
+      box-shadow: 0 0 28px rgba(154, 163, 187, 0.2);
+      border-radius: 20px;
+      padding: 8px;
+      width: 254px;
+      margin: 6px auto 0;
+
+      li {
+        font-size: 16px;
+      }
+    }
+
+    &-item {
+      padding: 16px 18px;
+      width: 100%;
+      margin-top: 20px;
+
+      &__title {
+        font-size: 26px;
+        order: 0;
+      }
+
+      &__subtitle {
+        font-size: 12px;
+        order: 1;
+      }
+
+      &__text {
+        font-size: 16px;
+        margin: 16px 0;
+        padding-top: 8px;
+        order: 3;
+      }
+
+      &__left {
+        display: flex;
+        flex-direction: column;
+      }
+
+      &__right {
+        margin-bottom: 8px;
+
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+  .choice-btn-wrap {
+    position: static;
+    order: 2;
+    text-align: left;
+    margin-top: 16px;
+  }
+}

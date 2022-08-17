@@ -1,0 +1,224 @@
+@use "variables" as *;
+
+@media (max-width: $breakpoint-xxl){
+  :root{
+    --section-padding: 80px;
+    --elements-padding: 18px;
+  }
+  * {
+    font-size: 18px;
+  }
+  .section-title {
+    font-size: 36px;
+  }
+  .container {
+    max-width: container(xl);
+    padding: 0 gutter(xl);
+  }
+  .h1-title {
+    font-size: 72px;
+    margin-bottom: 60px;
+    span {
+      font-size: 72px;
+    }
+  }
+  .top-contacts__logo{
+    width: 120px;
+    height: 120px;
+  }
+  .top-contacts-links {
+    margin-right: 28px;
+  }
+  .top-text {
+    max-width: 546px;
+    font-size: 20px;
+  }
+  .top-buttons {
+    .btn:first-child{
+      margin-right: 15px;
+    }
+  }
+  .top-row {
+    margin-bottom: 80px;
+  }
+  .white-wrap {
+    --padding-radius: 20px;
+  }
+
+  .ellipse {
+    &-1:before {
+      width: 1826px;
+      height: 732px;
+      left: 367px;
+      top: -367px;
+    }
+    &-2:before  {
+      width: 1074px;
+      height: 604px;
+      left: -537px;
+    }
+    &-3:before {
+      margin-top: -215px;
+      width: 1074px;
+      height: 431px;
+      left: 743px;
+    }
+    &-4:before {
+      margin-top: -205px;
+      width: 886px;
+      height: 410px;
+      left: 837px;
+    }
+  }
+}
+@media (max-width: $breakpoint-xl) {
+  :root {
+    --elements-padding: 16px;
+  }
+  .container {
+    max-width: container(lg);
+    padding: 0 gutter(lg);
+  }
+  .top-contacts-links {
+    order: 1;
+    margin-right: 0;
+  }
+  .top-contacts {
+    justify-content: space-between;
+    &-links {
+      margin-top: 0;
+    }
+  }
+  .h1-title {
+    margin-top: 40px;
+  }
+  .top-text {
+    max-width: 356px;
+  }
+  .top-buttons {
+    .btn--none {
+      background-color: colors('white');
+      margin-top: 16px;
+    }
+  }
+  .ellipse {
+    &-1:before {
+      width: 1124px;
+      height: 1008px;
+      left: 206px;
+      top: -504px;
+    }
+    &-2:before  {
+      width: 851px;
+      height: 607px;
+      left: -537px;
+      bottom: auto;
+      top: 120px;
+    }
+    &-3:before {
+      margin-top: -215px;
+      width: 628px;
+      height: 427px;
+      left: 454px;
+    }
+    &-4:before {
+      margin-top: -205px;
+      width: 504px;
+      height: 410px;
+      left: 516px;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-xs) {
+  :root{
+    --section-padding: 40px;
+    --elements-padding: 8px;
+  }
+  * {
+    font-size: 14px;
+  }
+  .container {
+    max-width: container(md);
+    padding: 0 gutter(md);
+  }
+  .section-title {
+    font-size: 28px;
+  }
+  .top-contacts {
+    margin-top: 20px;
+    &__logo{
+      width: 80px;
+      height: 80px;
+    }
+  }
+  .h1-title{
+    font-size: 40px;
+    margin-bottom: 29px;
+    span {
+      display: none;
+    }
+  }
+  .top-row {
+    display: block;
+    margin-bottom: 40px;
+  }
+  .top-text {
+    max-width: none;
+  }
+  .top-buttons {
+    margin-bottom: 20px;
+    //max-width: 250px;
+    .btn--none {
+      margin-top: 8px;
+    }
+  }
+  .white-wrap {
+    --padding-radius: 16px;
+  }
+  .ellipse {
+    &-1:before {
+      width: 388px;
+      height: 768px;
+      left: 126px;
+      top: -384px;
+    }
+    &-2:before  {
+      width: 388px;
+      height: 376px;
+      left: -194px;
+      top: 246px;
+    }
+    &-3:before {
+      margin-top: -129px;
+      width: 388px;
+      height: 258px;
+      left: 126px;
+    }
+    &-4:before {
+      margin-top: -140px;
+      width: 388px;
+      height: 280px;
+      left: 126px;
+    }
+  }
+  .popup-window {
+    .fancybox__content > .carousel__button.is-close {
+      top: 12px;
+      right: 12px;
+    }
+
+    .carousel__button {
+      width: 40px;
+      height: 30px;
+      border-radius: 8px;
+      padding: 3px 8px;
+    }
+    .fancybox__slide {
+      padding: 0;
+    }
+    .fancybox__content {
+
+    }
+  }
+}

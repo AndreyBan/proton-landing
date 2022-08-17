@@ -1,0 +1,121 @@
+@use "../variables" as *;
+
+.it-import {
+  &-card {
+    display: grid;
+    grid-template: auto / repeat(3, 1fr);
+    column-gap: 24px;
+    row-gap: 24px;
+    margin-top: 60px;
+    &::-webkit-scrollbar-thumb {
+      background-color: transparent;
+    }
+    &::-webkit-scrollbar {
+      background-color: transparent;
+    }
+    &-item {
+      padding: 28px;
+      background-color: colors('white');
+      border-radius: 28px;
+      display: grid;
+      grid-template: auto / 40px auto;
+      column-gap: 29px;
+      align-items: center;
+      height: 140px;
+      &:hover {
+        .it-import-card-item__svg {
+          stroke: colors('black');
+        }
+      }
+      &:last-child {
+        grid-template: auto / 1fr;
+        justify-items: center;
+        white-space: nowrap;
+        text-decoration: none;
+        font-weight: 500;
+        transition: ease-in .2s;
+        &:hover {
+          background-color: colors('light-grey');
+        }
+      }
+      &__text {
+        margin: 0;
+        cursor: default;
+      }
+      &__svg {
+        width: 40px;
+        height: 40px;
+        stroke: colors('grey');
+        transition: ease-in .2s;
+      }
+    }
+  }
+}
+.btn-hide-desktop {
+  display: none;
+}
+@media  (max-width: $breakpoint-xxl){
+  .it-import {
+    &-card {
+      column-gap: 18px;
+      row-gap: 18px;
+      margin-top: 40px;
+      &-item {
+        grid-template: auto/28px auto;
+        column-gap: 21px;
+        padding: 20px;
+        border-radius: 20px;
+        &:last-child {
+          border-radius: 16px;
+        }
+        &__svg {
+          width: 28px;
+          height: 28px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: $breakpoint-xl){
+  .it-import {
+    &-card {
+      grid-template: auto / 1fr 1fr;
+      &-item {
+        height: auto;
+      }
+    }
+  }
+}
+@media (max-width: $breakpoint-xs){
+  .it-import {
+    &-card {
+      display: flex;
+      overflow: auto;
+      column-gap: 8px;
+      margin-left: -12px;
+      margin-right: -12px;
+      padding-left: 12px;
+      &-item {
+        min-width: 258px;
+        padding: 16px;
+        column-gap: 16px;
+        border-radius: 16px;
+        &:last-child {
+          display: none;
+        }
+        &__text {
+          font-size: 16px;
+        }
+        &__svg {
+          width: 24px;
+          height: 24px;
+        }
+      }
+    }
+  }
+  .btn-hide-desktop {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+  }
+}

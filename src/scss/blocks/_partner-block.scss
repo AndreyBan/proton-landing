@@ -1,0 +1,132 @@
+@use "../variables" as *;
+.partners {
+  padding: 40px 0 60px;
+  border-top: 1px solid colors('black');
+  border-bottom: 1px solid colors('black');
+
+  &-icon {
+    display: flex;
+    justify-content: space-around;
+
+    &__item {
+      width: 240px;
+      &-icon {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 12px;
+
+        img {
+          width: 120px;
+          height: 120px;
+
+          &:last-child {
+            position: absolute;
+            opacity: 0;
+            transition: .2s ease-in;
+            z-index: 1;
+          }
+        }
+
+        svg {
+          width: 120px;
+          height: 120px;
+
+          &:last-child {
+            position: absolute;
+            opacity: 0;
+            transition: .2s ease-in;
+          }
+        }
+
+        &:hover {
+          svg:last-child,
+          img:last-child, {
+            opacity: 1;
+          }
+        }
+      }
+
+      &-name {
+        text-align: center;
+        font-size: 18px;
+      }
+    }
+  }
+}
+@media (max-width: $breakpoint-xxl) {
+  .partners {
+    padding: 28px 0 37px;
+    &-icon__item {
+      width: 170px;
+      &:first-child {
+        padding-left: 0;
+      }
+      &:last-child{
+        padding-right: 0;
+      }
+      &-name {
+        font-size: 16px;
+      }
+      &-icon {
+        margin-bottom: 8px;
+      }
+    }
+    &-icon {
+      svg, img {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  }
+}
+@media (max-width: $breakpoint-xl) {
+  .partners {
+    &-icon {
+      justify-content: space-between;
+    }
+    &-icon__item {
+      padding: 0 8px;
+      width: 116px;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-xs) {
+  .partners {
+    padding: 16px 0 5px;
+
+    &-icon {
+      overflow: auto;
+      display: grid;
+      padding: 0 16px;
+      margin-left: -16px;
+      margin-right: -16px;
+      grid-template: 1fr / repeat(6, 106px);
+      column-gap: 8px;
+      &::-webkit-scrollbar-thumb {
+        background-color: transparent;
+      }
+      &::-webkit-scrollbar {
+        background-color: transparent;
+      }
+      &__item {
+        padding: 0;
+        width: auto;
+        &-icon {
+          svg, img {
+            width: 80px;
+            height: 80px;
+          }
+          margin-bottom: 6px;
+        }
+        &-name {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+
